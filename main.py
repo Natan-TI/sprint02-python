@@ -1,5 +1,19 @@
 from funcoes import *
 destinos = ["Av. Lins de Vasconcelos, 1222 (FIAP)", "Estação Vila Mariana", "Avenida Paulista, 1578 (MASP)"]
+lista_destino01 = ["477A - Term. PINHEIROS - Lotação: 3.0 - Tempo de chegada: 10 minutos!",
+                   "5142 - Term. PQ DOM PEDRO II - Lotação: 4.5 - Tempo de chegada: 7 minutos!",
+                   "476G - IBIRAPUERA - Lotação: 2.5 - Tempo de chegada: 15 minutos!",
+                   "3390 - Term. PQ DOM PEDRO II - Lotação: 3.5 - Tempo de chegada: 13 minutos!"]
+
+lista_destino02 = ["476G - IBIRAPUERA - Lotação: 2.5 - Tempo de chegada: 15 minutos!",
+                   "4115 - PRAÇA DA REPÚBLICA - Lotação: 5.0 - Tempo de chegada: 18 minutos!",
+                   "407M - METRÔ VILA MARIANA - Lotação: 3.5 - Tempo de chegada: 10 minutos!",
+                   "5705 - METRÔ VERGUEIRO - Lotação: 1.5 - Tempo de chegada: 8 minutos!"]
+
+lista_destino03 = ["874T - LAPA - Lotação: 4.0 - Tempo de chegada: 5 minutos!",
+                   "975A - VILA BRASILÂNDIA - Lotação: 5.0 - Tempo de chegada: 7 minutos!",
+                   "407M - METRÔ VILA MARIANA - Lotação: 3.5 - Tempo de chegada: 10 minutos!",
+                   "3390 - Term. PQ DOM PEDRO II - Lotação: 3.5 - Tempo de chegada: 13 minutos!"]
 print("---------------------------------------------------------------------")
 nome = input("Qual é o seu nome? ")
 boasVindas(nome)
@@ -20,11 +34,11 @@ while resposta == "S":
                         f"\nDigite 3 para {destinos[2]}\n")
     destino = int(destino)
     if destino == 1:
-        mostrarDestino1(destinos[0])
+        mostrarDestino1(destinos[0], lista_destino01)
     elif destino == 2:
-        mostrarDestino2(destinos[1])
+        mostrarDestino2(destinos[1], lista_destino02)
     elif destino == 3:
-        mostrarDestino3(destinos[2])
+        mostrarDestino3(destinos[2], lista_destino03)
     else:
         print("Destino não disponível no momento...")
     resposta = input("Você gostaria de testar novamente? (s/n) ").upper()
