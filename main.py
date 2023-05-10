@@ -14,36 +14,22 @@ onibus_destino03 = ["874T - LAPA - Lotação: 4.0 - Tempo de chegada: 5 minutos!
                    "975A - VILA BRASILÂNDIA - Lotação: 5.0 - Tempo de chegada: 7 minutos!",
                    "407M - METRÔ VILA MARIANA - Lotação: 3.5 - Tempo de chegada: 10 minutos!",
                    "3390 - Term. PQ DOM PEDRO II - Lotação: 3.5 - Tempo de chegada: 13 minutos!"]
+frase = f"Para qual destino você gostaria de ir?\nDigite 1 para {destinos[0]}\nDigite 2 para {destinos[1]}\nDigite 3 para {destinos[2]}\n"
+frase2 = f"Você precisa digitar 1, 2 ou 3!\nPara qual destino você gostaria de ir?\nDigite 1 para {destinos[0]}\nDigite 2 para {destinos[1]}\nDigite 3 para {destinos[2]}\n"
 print("---------------------------------------------------------------------")
 nome = input("Qual é o seu nome? ")
-boasVindas(nome)
-resposta = input("Você gostaria de testar a otimização na busca por transportes públicos? (s/n) ").upper()
-while resposta != 'S' and resposta != 'N':
-    print("Você precisa digitar \'s\' ou \'n\'!")
-    resposta = input("Você gostaria de testar a otimização na busca por transportes públicos? (s/n) ").upper()
-while resposta == "S":
-    destino = input(f"Para qual destino você gostaria de ir?"
-                    f"\nDigite 1 para {destinos[0]}"
-                    f"\nDigite 2 para {destinos[1]}"
-                    f"\nDigite 3 para {destinos[2]}\n")
-    while not destino.isnumeric():
-        print("Você precisa digitar 1, 2 ou 3!")
-        destino = input(f"Para qual destino você gostaria de ir?"
-                        f"\nDigite 1 para {destinos[0]}"
-                        f"\nDigite 2 para {destinos[1]}"
-                        f"\nDigite 3 para {destinos[2]}\n")
-    destino = int(destino)
+boas_vindas(nome)
+resposta = obrigar_usuario("Você gostaria de testar a otimização na busca por transportes públicos? (s/n) ", 'S', 'N')
+while resposta == 'S':
+    destino = teste_numerico(frase, frase2)
     if destino == 1:
-        mostrarDestino(destinos[0], onibus_destino01)
+        mostrar_destino(destinos[0], onibus_destino01)
     elif destino == 2:
-        mostrarDestino(destinos[1], onibus_destino02)
+        mostrar_destino(destinos[1], onibus_destino02)
     elif destino == 3:
-        mostrarDestino(destinos[2], onibus_destino03)
+        mostrar_destino(destinos[2], onibus_destino03)
     else:
         print("Destino não disponível no momento...")
-    resposta = input("Você gostaria de testar novamente? (s/n) ").upper()
-    while resposta != 'S' and resposta != 'N':
-        print("Você precisa digitar \'s\' ou \'n\'!")
-        resposta = input("Você gostaria de testar novamente? (s/n) ").upper()
+    resposta = obrigar_usuario("Você gostaria de testar novamente? (s/n) ", 'S', 'N')
 else:
     print(f"Tenha um bom dia {nome}!")
